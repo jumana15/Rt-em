@@ -48,7 +48,7 @@ int reverse(int num)
 int prime(int num)
 {
 	int i;
-	for(i=2;i<(num/2);i++)
+	for(i=2;i<(num/2)+1;i++)
 		if((num%i)==0)
 			return 0;
 	return 1;
