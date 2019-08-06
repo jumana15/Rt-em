@@ -28,7 +28,7 @@ int is_ascending_order(int num)
 int is_Perfect_number(int num)
 {
 	int sum=1,num1=num,i;
-	for(i=2;i<(num/2)+1;i++)
+	for(i=2;i<num;i++)
 		if((num%i)==0)
 			sum+=i;
 	if(sum==num)
