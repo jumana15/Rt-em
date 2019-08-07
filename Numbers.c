@@ -75,18 +75,22 @@ int main()
 		printf("%d is in ascending order \n",num);
 	else
 		printf("%d isn't in ascending order \n",num);
+	if(num!=0){
 	x=is_Perfect_number(num);
 	if(x==1)
 		printf("%d is a Perfect number \n",num);
 	else
 		printf("%d isn't a Perfect number \n",num);
+	}
 	x=reverse(num);
 		printf("%d reversed number is %d \n",num,x);
+	if(num!=0){
 	x=prime(num);
 	if(x==1)
 		printf("%d is a Prime \n",num);
 	else
 		printf("%d isn't a Prime \n",num);
+	}
 
 	return 0;
 }
