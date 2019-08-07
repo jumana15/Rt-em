@@ -28,6 +28,8 @@ int is_ascending_order(int num)
 int is_Perfect_number(int num)
 {
 	int sum=1,num1=num,i;
+	if(num==1)
+		return 0;
 	for(i=2;i<num;i++)
 		if((num%i)==0)
 			sum+=i;
@@ -48,6 +50,8 @@ int reverse(int num)
 int prime(int num)
 {
 	int i;
+	if(num==1)
+		return 0;
 	for(i=2;i<(num/2)+1;i++)
 		if((num%i)==0)
 			return 0;
