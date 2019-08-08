@@ -108,7 +108,7 @@ void lotto()
 			printf("%d",i);
 			for(j=1;j<=10;j++)
 			{
-			    if(array[index]==(10*i+j))
+			    if((index<N)&&(array[index]==(10*i+j)))
                 {
                     printf(" %c",'+');
                     index++;
