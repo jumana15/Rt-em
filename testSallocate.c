@@ -9,7 +9,7 @@ int main()
 	{
 		printf("Please enter the number of arrays:\n");
         scanf("%d",&SarraySize);
-		if(i>0)
+		if(SarraySize>0)
 		{
 		    Sarray=(DA_t*)malloc(SarraySize*sizeof(DA_t));
             if(!Sarray)
