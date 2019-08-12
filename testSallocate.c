@@ -58,6 +58,6 @@ int main()
         printDA(&Sarray[i]);
     }
     for(i=0;i<SarraySize;i++)
-        free(&Sarray[i]);
+        destroyDA(&Sarray[i]);
 	return 0;
 }
