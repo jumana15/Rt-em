@@ -4,7 +4,9 @@
 int main()
 {
     int SarraySize,i,size,num,index=0;
-	DA_t *Sarray,*ip;
+    DA_t *Sarray,*ip;
+    intPtr num_p;
+
 	while(1)
 	{
 		printf("Please enter the number of arrays:\n");
@@ -30,10 +32,15 @@ int main()
             if(size>0)
             {
                 ip=createDA(size);
+		if(!ip)
+                {
+                    printf("Struct can't be allocated :(");
+                    return 0;
+		}
                 Sarray[i]=*ip;
                 if(!Sarray[i].arr)
                 {
-                    printf("can't be allocated :(");
+                    printf("Array can't be allocated :(");
                     return 0;
                 }
                 break;
@@ -45,14 +52,21 @@ int main()
             scanf("%d",&num);
             if(num==-5)
                 break;
-            if(!insert(Sarray+i,num))
+  	    num_p=(intPtr)malloc(sizeof(int));
+	    if(!num_p)
+            {
+            	printf("Size can't be allocated :(");
+                return 0;
+  	    }
+	    *num_p=num;
+            if(!insert(Sarray+i,num_p))
             {
                 printf("there's no enough place :(");
                 break;
             }
             Sarray[i].index++;
         }
-        Sarray[i].arr=(int*)realloc(Sarray[i].arr,(Sarray[i].index)*sizeof(int));
+        Sarray[i].arr=(intPtr*)realloc(Sarray[i].arr,(Sarray[i].index)*sizeof(intPtr));
         Sarray[i].size=Sarray[i].index;
         printf("Array final size = %d\n",Sarray[i].size);
         printDA(&Sarray[i]);
