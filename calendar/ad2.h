@@ -14,7 +14,7 @@ typedef struct
 } meeting_l;
 int Binary_search_legal(meeting** a,int size,meeting* new);
 int Binary_search(meeting** a,int size,int x);
-meeting_l* createAD();
+meeting_l* createAD(int size);
 meeting* createMeeting(float begin,float end,int room);
 meeting_l* sortMeeting(meeting_l* list,meeting* new);
 meeting_l* Mremove(meeting_l* list,float begin);
