@@ -91,5 +91,6 @@ int main()
         if(!flag)
             break;
     }
+    list=destroyAD(list);
     return 0;
 }
