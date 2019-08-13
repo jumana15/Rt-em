@@ -3,7 +3,7 @@
 #include "ad2.h"
 int main()
 {
-    int x,room,flag=1;
+    int size,x,room,flag=1;
     float begin,end;
     meeting_l *ip,*list=NULL;
     meeting* m;
@@ -16,10 +16,10 @@ int main()
         {
         case 1:
 	    printf("\nPlease, enter size:\n");
-	    scanf("%d",&x);
-	    if(x>=1)
+	    scanf("%d",&size);
+	    if(size>=1)
 	    {
-		list=createAD(x);
+		list=createAD(size);
             	if(!list)
             	{
                 	printf("AD can't be allocated :(");
