@@ -15,12 +15,19 @@ int main()
         switch(x)
         {
         case 1:
-            list=createAD();
-            if(!list)
-            {
-                printf("AD can't be allocated :(");
-                return 0;
-            }
+	    printf("\nPlease, enter size:\n");
+	    scanf("%d",&x);
+	    if(x>=1)
+	    {
+		list=createAD(x);
+            	if(!list)
+            	{
+                	printf("AD can't be allocated :(");
+                	return 0;
+           	}
+	    }
+	    else
+		printf("Size cannot be less than one !\n");
             break;
         case 2:
             printf("\nPlease Enter begin/end/room number\n");
