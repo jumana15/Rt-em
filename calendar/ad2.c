@@ -44,13 +44,13 @@ int Binary_search(meeting** a,int size,int x)
     }
     return -1;
 }
-meeting_l* createAD()
+meeting_l* createAD(int size)
 {
     meeting_l* list=(meeting_l*)malloc(sizeof(meeting_l));
     if(list)
     {
-        list->meetingList=(meeting**)malloc(sizeof(meeting*));
-        list->size=1;
+        list->meetingList=(meeting**)malloc(size*sizeof(meeting*));
+        list->size=size;
         list->index=0;
     }
     return list;
