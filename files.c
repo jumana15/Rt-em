@@ -121,4 +121,3 @@ int word_counter(FILE* input,FILE* output,int size)
     }
     return 1;
 }
-
