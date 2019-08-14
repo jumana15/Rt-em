@@ -15,6 +15,11 @@ void PrintLastN(FILE* ptr,FILE* output,int N)
         i++;
         count++;
     }
+    if(count<N)
+    {
+        printf("N > file lines number!");
+        return;
+    }
     for(j=0; j<N; j++)
     {
         fseek(ptr,arr[(i+j)%N],SEEK_SET);
