@@ -1,7 +1,7 @@
 #ifndef FILES_H
 #define FILES_H
 
-ttypedef struct
+typedef struct
 {
     char* str;
     int count;
