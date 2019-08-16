@@ -37,16 +37,17 @@ int bitOn(bitmap* b,int bit)
 		return -1;
 	flag<<=bit%32;
 	b->arr[bit/32]|=flag;
-	printf("bit=%d\n",b->arr[bit/32]);
 	return 1;
 
 }
 int bitOff(bitmap* b,int bit)
 {
-	int flag=~1;
+	char*s;
+	int flag=1;
 	if(bit>=b->N)
 		return -1;
 	flag<<=bit%32;
+	flag=~flag;
 	b->arr[bit/32]&=flag;
 	return 1;
 
@@ -153,10 +154,10 @@ int main()
 	            {
 	                printf("Illegal bit!");
 	            }
-	            printf("Bit Status: %d",i);
+	            printf("Bit Status: %d\n",i);
 	            break;
-	        case -5:
-	        	break;
+	        default:
+	        	return 0;
 		}
 	}
 
