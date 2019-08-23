@@ -13,7 +13,7 @@ INCLUDES =
 LIBS =
 
 # define the C source files
-SRCS = c.c t.c
+SRCS = darray.c darraytester.c
 
 # define the C object files 
 #
