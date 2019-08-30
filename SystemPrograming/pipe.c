@@ -8,6 +8,8 @@ pipeFunc()
 	int status,pipefd[2];/*input/output*/
 	int x=pipe(pipefd);
 	char str[15];
+	if(x==-1)
+		exit(1);
 	pid_t pid=fork();
 	if(pid)
 	{	
