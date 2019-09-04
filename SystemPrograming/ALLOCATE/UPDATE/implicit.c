@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include"allocate.h"
 
 #define IS_MSB(number) (number&(0x80000000))
 #define SET_FREE(header) ((header)&(0x7fffffff))
@@ -8,14 +7,13 @@
 #define SHIFT(number) ((number)<<31)
 #define MOD4(number) ((number)&(~3))
 
-void* memInit(void* buffer,unsigned int *size)
+void* memInit(void* buffer,unsigned int size)
 {
 	int* bf=(int*)buffer;
 	unsigned int i;
-	(*size)/=4;
 	bf=(int*)((((long)bf+3)/4)*4);
-	*size=MOD4((*size)-(bf-(int*)buffer));
-	bf[0]=*size;
+	size=MOD4(size-(bf-(int*)buffer));
+	bf[0]=size;
 	return bf;
 }
 
@@ -23,7 +21,6 @@ void* memAlloc(void* buffer,unsigned int size,unsigned int newSize)
 {
 	int* bf=(int*)buffer;
 	unsigned int s,sum=0,count=0,sum2=0;
-	newSize=(newSize+3)/4;
 	while(sum<size)
 	{
 		count=0;			
@@ -76,4 +73,76 @@ int printArray(void* buffer,unsigned int size)
 		}
 	}
 
+}
+
+int main()
+{
+	unsigned int size=17;
+	void* pr=calloc(size,4);
+	if(pr)
+	{	
+		pr=memInit(pr,size);
+		size=((int*)pr)[0];
+		printf("size=%u\n",size);
+		printArray(pr,size);
+		printf("*\n*\n");
+		
+		memAlloc(pr,size,1);
+		printArray(pr,size);
+		printf("*\n*\n");
+
+		memAlloc(pr,size,1);
+		printArray(pr,size);
+		printf("*\n*\n");
+
+		memAlloc(pr,size,3);
+		printArray(pr,size);
+		printf("*\n*\n");
+
+		memAlloc(pr,size,2);
+		printArray(pr,size);
+		printf("*\n*\n");
+
+		memAlloc(pr,size,2);
+		printArray(pr,size);
+		printf("*\n*\n");
+		
+		memFree(pr,&((int*)pr)[1],size);
+		printArray(pr,size);
+		printf("*\n*\n");
+
+		memFree(pr,&((int*)pr)[0],size);
+		printArray(pr,size);
+		printf("*\n*\n");
+
+		memFree(pr,&((int*)pr)[5],size);
+		printArray(pr,size);
+		printf("*\n*\n");
+
+		memFree(pr,&((int*)pr)[7],size);
+		printArray(pr,size);
+		printf("*\n*\n");
+		
+		memAlloc(pr,size,4);
+		printArray(pr,size);
+		printf("*\n*\n");
+		
+		memAlloc(pr,size,2);
+		printArray(pr,size);
+		printf("*\n*\n");
+
+		memAlloc(pr,size,3);
+		printArray(pr,size);
+		printf("*\n*\n");
+
+		memFree(pr,&((int*)pr)[12],size);
+		printArray(pr,size);
+		printf("*\n*\n");
+
+		memAlloc(pr,size,6);
+		printArray(pr,size);
+		printf("*\n*\n");
+	}
+	free(pr);
+	return 0;
 }
