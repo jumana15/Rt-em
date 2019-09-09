@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "wqueue.h"
 #include "producers.h"
+#include "consumers.h"
 
 int main()
 {
