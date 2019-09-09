@@ -4,14 +4,14 @@
 #include <unistd.h> 
 #include <stdlib.h>
 #include "wqueue.h"
-#include "consumers.h"
+#include "producers.h"
 
-void consumer(void** item)
+void producer(void* item)
 {
     pthread_mutex_lock(&buffer->mutex);
-    while(buffer->count <= 0)
-        pthread_cond_wait(&buffer->more, &buffer->mutex);
-    pop(item);
-    pthread_cond_signal(&buffer->less);
+    while (buffer->count >= buffer->size)
+        pthread_cond_wait(&buffer->less,&buffer->mutex);
+    push(item);
+    pthread_cond_signal(&buffer->more);
     pthread_mutex_unlock(&buffer->mutex);
 }
