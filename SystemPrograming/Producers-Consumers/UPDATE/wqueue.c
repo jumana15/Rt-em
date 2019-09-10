@@ -108,6 +108,7 @@ void destroyQueue(buffer_t* buffer)
 		(buffer->top)%=(buffer->size);
 		(buffer->count)--;
 	}
+	pthread_mutex_destroy(&buffer->mutex);
 	free(buffer->queue);
 	free(buffer);
 }
