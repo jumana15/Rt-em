@@ -100,8 +100,13 @@ int push(buffer_t* buffer,void* item)
 
 void destroyQueue(buffer_t* buffer)
 {
-	if(!(buffer->queue))
+	if(!buffer)
 		return;
+	if(!(buffer->queue))
+	{
+		free(buffer);
+		return;
+	}
 	while(!isEmpty(buffer))
 	{
 		free((buffer->queue)[(buffer->top)++]);
@@ -109,20 +114,8 @@ void destroyQueue(buffer_t* buffer)
 		(buffer->count)--;
 	}
 	pthread_mutex_destroy(&buffer->mutex);
+	pthread_cond_destroy(&buffer->less);
+	pthread_cond_destroy(&buffer->more);
 	free(buffer->queue);
 	free(buffer);
 }
-
-/*int main()
-{
-	char* s;
-	size_t size=10;
-	create(size);
-	push("jumana");
-	push("rayan");
-	pop((void**)(&s));
-	/*pop((void**)(&s));*/
-	/*printf("counter=%lu.\n",buffer->count);
-	printf("string=%s\n",s);
-	return 0;
-}*/
