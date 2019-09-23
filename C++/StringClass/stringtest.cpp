@@ -19,7 +19,7 @@ int main()
 	        {
 	            String s1;
 	            s1.print();
-	            s1.~String();
+	            //s1.~String();
 	            break;
 	        }
 	        case 2:
@@ -28,7 +28,7 @@ int main()
 	            scanf("%s",str);
 	            String s2(str);
 	            s2.print();
-	            s2.~String();
+	            //s2.~String();
 	            break;
 	        }
 	        case 3:
@@ -39,8 +39,8 @@ int main()
 	            s3.print();
 	            String s9(s3);
 	            s9.print();
-	            s3.~String();
-	            s9.~String();
+	            //s3.~String();
+	            //s9.~String();
 	            break;
 			}
 	        case 4:
