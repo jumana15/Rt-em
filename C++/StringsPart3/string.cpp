@@ -216,7 +216,7 @@ size_t String::setCapacity(size_t size)
 	return prevSize;
 }
 
-size_t String::firstOccurrenceCharacter(char c)
+size_t String::firstOccurrenceCharacter(char c) const
 {
 	size_t index;
 	for(index=0;index<this->len;index++)
@@ -229,7 +229,7 @@ size_t String::firstOccurrenceCharacter(char c)
 	return index;
 }
 
-size_t String::lastOccurrenceCharacter(char c)
+size_t String::lastOccurrenceCharacter(char c) const
 {
 	size_t index;
 	for(index=this->len-1;index>=0;index--)
