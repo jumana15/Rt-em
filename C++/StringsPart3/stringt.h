@@ -36,8 +36,8 @@ class String
 		static bool setCaseSensitive(bool b);
 		inline static bool getCaseSensitive();
 		inline size_t getCapacity() const;
-		size_t firstOccurrenceCharacter(char c);
-		size_t lastOccurrenceCharacter(char c);
+		size_t firstOccurrenceCharacter(char c) const;
+		size_t lastOccurrenceCharacter(char c) const;
 		String operator()(int start, int len) const;
 		inline static size_t getNumOfStrings();
 		~String();
