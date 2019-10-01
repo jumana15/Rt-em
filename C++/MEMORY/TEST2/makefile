@@ -13,7 +13,7 @@ INCLUDES = memManager_t.h memPage_t.h memPool_t.h
 LIBS =
 
 # define the C source files
-SRCS = memManager_t.cpp memPage_t.cpp memPool_t.cpp test.cpp
+SRCS = memManager_t.cpp memPage_t.cpp memPool_t.cpp test2.cpp
 
 # define the C object files 
 #
