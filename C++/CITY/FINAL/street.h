@@ -1,8 +1,6 @@
 #ifndef STREET_H
 #define STREET_H
 
-#include<stdio.h>
-#include<vector>
 #include "building.h"
 
 template<class S,class B> 
@@ -74,7 +72,8 @@ const Building_t<B>* Street_t<S,B>::getBuilding(int index) const
 {
 	if(index>=m_buildingsVec.size())
 	{
-		throw("IndexOutOfBounds!");
+		string s="IndexOutOfBounds!";
+		throw(s);
 	}
 	return m_buildingsVec[index];
 }

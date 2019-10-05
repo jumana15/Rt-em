@@ -1,7 +1,6 @@
 #ifndef CITY_H
 #define CITY_H
 
-#include<stdio.h>
 #include"building.h"
 #include "street.h"
 
@@ -51,7 +50,8 @@ const Street_t<S,B>* City_t<C,S,B>::getStreet(int index) const
 {
 	if(index>=m_streetsVec.size())
 	{
-		throw("IndexOutOfBounds!");
+		string s="IndexOutOfBounds!";
+		throw(s);
 	}
 	return m_streetsVec[index];
 }

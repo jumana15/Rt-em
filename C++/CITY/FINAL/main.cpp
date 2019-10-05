@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<string.h>
+#include<string>
 #include<iostream>
 
 #include "building.h"
@@ -12,21 +12,21 @@ int main()
 {
 	bool b;
 	int x,y,z,flag=1;
-	char str[100];
+	string str;
 	Building_t<int>* bi=new Building_t<int>;
-	Building_t<char*>* bs=new Building_t<char*>;
+	Building_t<string>* bs=new Building_t<string>;
 	Street_t<int,int>* si=new Street_t<int,int>;
-	Street_t<char*,char*>* ss=new Street_t<char*,char*>;
+	Street_t<string,string>* ss=new Street_t<string,string>;
 	City_t<int,int,int> ci;
-	City_t<char*,char*,char*> cs;
+	City_t<string,string,string> cs;
 	bi->setBuidingID(1);
-	strcpy(str,"b1");
+	str="b1";
 	bs->setBuidingID(str);
 	si->setStreetID(1);
-	strcpy(str,"s1");
+	str="s1";
 	ss->setStreetID(str);
 	ci.setCityID(1);
-	strcpy(str,"c1");
+	str="c1";
 	cs.setCityID(str);
 	ss->AddBuilding2Street(bs);
 	si->AddBuilding2Street(bi);
@@ -125,7 +125,7 @@ int main()
         				{
         					cout<<"Enter a String:"<<endl;
         					cin>>str;
-        					Building_t<char*>* s=new Building_t<char*>;
+        					Building_t<string>* s=new Building_t<string>;
         					s->setBuidingID(str);
         					ss->AddBuilding2Street(s);
         				}
@@ -149,7 +149,7 @@ int main()
         					{
         						cout<<ss->getBuilding(z)->getBuildingID()<<endl;
         					}
-        					catch(char* s)
+        					catch(string s)
         					{
         						cout<<s<<endl;
         					}
@@ -160,7 +160,7 @@ int main()
         					{
         						cout<<si->getBuilding(z)->getBuildingID()<<endl;
         					}
-        					catch(char* s)
+        					catch(string s)
         					{
         						cout<<s<<endl;
         					}
@@ -217,7 +217,7 @@ int main()
         				{
         					cout<<"Enter a String:"<<endl;
         					cin>>str;
-        					Street_t<char*,char*>* s=new Street_t<char*,char*>;
+        					Street_t<string,string>* s=new Street_t<string,string>;
         					s->setStreetID(str);
         					cs.AddStreet(s);
         				}
@@ -241,7 +241,7 @@ int main()
         					{
         						cout<<cs.getStreet(z)->getStreetID()<<endl;
         					}
-        					catch(char* s)
+        					catch(string s)
         					{
         						cout<<s<<endl;
         					}
@@ -252,7 +252,7 @@ int main()
         					{
         						cout<<(int)ci.getStreet(z)->getStreetID()<<endl;
         					}
-        					catch(char* s)
+        					catch(string s)
         					{
         						cout<<s<<endl;
         					}
