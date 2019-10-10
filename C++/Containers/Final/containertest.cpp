@@ -10,10 +10,7 @@ template<class T,class C> void testFunc(tContainer_t<T,C>* c)
 	int x,y,flag=1;
 	size_t z;
 	while(1)
-	{
-		cout<<"press: 0-List Or 1-Vector."<<endl;
-		cin>>x;
-		
+	{	
 		cout<<"Choose option:\n1->isEmpty.\n2->elementsNumber.\n3->insertElement.\n4->getFirst.\n5->getLast.\n6->findElement.\n7->removeElement.\n8->removeElements.\n9->deleteElement.\n10->deleteElements.\n11->[].\nElse->break."<<endl;
 		cin>>x;
 		switch(x)
@@ -103,19 +100,17 @@ template<class T,class C> void testFunc(tContainer_t<T,C>* c)
 			case 11:
 			{
 				cout<<"Enter an Index:"<<endl;
-				n=new int;
-				cin>>z;
+				cin>>z;	
 				try
 				{
-					n=c->operator[](z);//[z];
+					y=*((*c)[z]);
 				}
 				catch(string s)
 				{
 					cout<<s<<endl;
 					break;
 				}
-				cout<<"c[index]= "<<*n<<endl;
-				delete n;
+				cout<<"c[index]= "<<y<<"."<<endl;
 				break;
 			}
 			default:
@@ -134,6 +129,8 @@ template<class T,class C> void testFunc(tContainer_t<T,C>* c)
 int main()
 {
 	int x;
+	cout<<"press: 0-List Or 1-Vector."<<endl;
+	cin>>x;
 	switch(x)
 	{
 		case 0:
