@@ -10,7 +10,7 @@ Meeting::Meeting(const float b,const float e,const string s):m_begin(b),m_end(e)
 	}
 }
 
-Meeting::Meeting(const Meeting& m):m_begin(m.getBegin()),m_end(m.getEnd()),m_subject(getSubject()){}
+Meeting::Meeting(const Meeting& m):m_begin(m.getBegin()),m_end(m.getEnd()),m_subject(m.getSubject()){}
 
 
 Meeting::~Meeting() {}
