@@ -29,8 +29,8 @@ class virtIO_t
 	public:
 		virtIO_t();
 		virtIO_t(const string name, const string mode);
-		bool openFile(const string name,const string mode){ m_file= fopen(name,mode); };
-		void closeFile(){ fclose(m_file); };
+		bool openFile(const string name,const string mode);
+		void closeFile();
 		const string getBath() const;
 		inline const string getAccess() const;
 		const size_t getLength() const;
